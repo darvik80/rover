@@ -55,7 +55,7 @@ public class XBoxController implements Runnable{
 
             Event event;
 
-            RoverControlState state = RoverControlState.builder().build();
+            RoverControlState state = RoverControlState.builder().direction(0).build();
             while (gamepad != null) {
                 gamepad.poll();
 
@@ -74,6 +74,11 @@ public class XBoxController implements Runnable{
                             state.setRightWeal((int) ((event.getValue() + 1) * 127));
                             updated = true;
                             break;
+                        case "y":
+                            state.setDirection(1);
+                            break;
+                        case "x":
+                            state.setDirection(0);
                     }
 
                     StringBuffer buffer = new StringBuffer(gamepad.getName());

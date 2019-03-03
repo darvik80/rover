@@ -8,5 +8,6 @@ import lombok.Data;
 public class RoverControlState {
     private int leftWeal;
     private int rightWeal;
+    private int direction;
 }
 
